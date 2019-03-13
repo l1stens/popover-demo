@@ -1,9 +1,12 @@
 $(clicked).on('click', function() {
+  console.log('1')
   $(popover).show()
-  $(document).one('click', function() {
-    $(popover).hide()
-  })
+  setTimeout(function(){
+    $(document).one('click', function() {
+      $(popover).hide()
+    })
+  },0)
 })
-$(wrapper).on('click', function(e){
+$(popover).on('click', function(e){
   e.stopPropagation()
 })
