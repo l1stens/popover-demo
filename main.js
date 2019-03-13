@@ -1,12 +1,14 @@
-$(clicked).on('click', function() {
-  console.log('1')
-  $(popover).show()
-  setTimeout(function(){
-    $(document).one('click', function() {
+$(clicked).on('click', function(){
+  if(popover.style.display === 'none'){
+    $(popover).show()
+    $(document).one('click', function(){
       $(popover).hide()
     })
-  },0)
+  }else{
+    $(popover).hide()
+  }
+
 })
-$(popover).on('click', function(e){
-  e.stopPropagation()
+$(wrapper).on('click', function(x){
+  x.stopPropagation()
 })
